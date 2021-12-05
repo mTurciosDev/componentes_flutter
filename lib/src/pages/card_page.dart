@@ -15,6 +15,15 @@ class CardPage extends StatelessWidget {
           _cardTipo1(),
           const SizedBox(height: 30),
           _cardTipo2(),
+          const SizedBox(height: 30),
+          _cardTipo1(),
+          const SizedBox(height: 30),
+          _cardTipo2(),
+          const SizedBox(height: 30),
+          _cardTipo1(),
+          const SizedBox(height: 30),
+          _cardTipo2(),
+          const SizedBox(height: 30),
         ],
       ),
     );
@@ -22,6 +31,8 @@ class CardPage extends StatelessWidget {
 
   Widget _cardTipo1() {
     return Card(
+      elevation: 10,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Column(
         children: <Widget>[
           const ListTile(
@@ -33,14 +44,13 @@ class CardPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              FlatButton(
+              TextButton(
                 child: const Text('Cancelar'),
                 onPressed: () {},
               ),
-              FlatButton(
+              TextButton(
                 child: const Text('Ok'),
                 onPressed: () {},
-                color: Colors.blue,
               ),
             ],
           )
@@ -50,7 +60,7 @@ class CardPage extends StatelessWidget {
   }
 
   Widget _cardTipo2() {
-    return Card(
+    final card = Container(
         child: Column(
       children: <Widget>[
         const FadeInImage(
@@ -67,5 +77,23 @@ class CardPage extends StatelessWidget {
         ),
       ],
     ));
+
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: Colors.white,
+          boxShadow: const <BoxShadow>[
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10.0,
+              spreadRadius: 2.0,
+              offset: Offset(2.0, 10.0),
+            )
+          ]),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: card,
+      ),
+    );
   }
 }
